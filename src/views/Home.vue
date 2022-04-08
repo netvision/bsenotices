@@ -27,7 +27,6 @@
       </li>
     </ul>
     </div>
-    <pre>{{notices}}</pre>
   </div>
 </template>
 <script setup>
