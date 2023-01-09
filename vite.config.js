@@ -11,5 +11,8 @@ export default defineConfig({
   },
   server: {
     open: true,
+    hmr: {
+      overlay: false
+    }
   },
 })

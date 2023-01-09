@@ -58,13 +58,12 @@ const getNotices = async() => {
     audio.play()
   }
   notices.value = newFiltered
+  console.log(newn.data)
 }
 
 onMounted(async() =>{
   let notice = await axios.get('https://api.bseindia.com/BseIndiaAPI/api/AnnGetData/w?pageno=1&strCat=-1&strPrevDate=&strScrip=&strSearch=P&strToDate=&strType=C')
   notices.value = notice.data.Table
-  let ofs = await axios.get('https://www1.nseindia.com/live_market/content/live_watch/offer_sale/ofs_details_retail.json')
-  console.log(ofs)
   setInterval(getNotices, 10000)
 })
 </script>

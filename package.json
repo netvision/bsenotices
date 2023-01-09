@@ -7,6 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@ocrv/vue-tailwind-pagination": "^0.0.4",
     "axios": "^0.26.1",
     "moment": "^2.29.1",
     "vue": "^3.2.31",
