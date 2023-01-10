@@ -31,32 +31,40 @@
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-col">
-                  <label class="leading-loose">Category</label>
-                  <select v-model="data.strCat" class="form-select px-4 py-3 rounded-full">
-                    <option value="-1" selected="selected">--Select Category--</option>
-                    <option value="AGM/EGM">AGM/EGM</option>
-                    <option value="Board Meeting">Board Meeting</option>
-                    <option value="Company Update">Company Update</option>
-                    <option value="Corp. Action">Corp. Action</option>
-                    <option value="Insider Trading / SAST">Insider Trading / SAST</option>
-                    <option value="Result">Result</option><option value="New Listing">New Listing</option>
-                  </select>
-                </div>
+                <div class="flex items-center space-x-4">
+                  <div class="flex flex-col w-40">
+                      <label class="leading-loose">Scrip Code</label>
+                      <div class="relative focus-within:text-gray-600 text-gray-400">
+                        <input v-model="data.strScrip" type="number" class="form-number form-input pr-4 pl-10 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
+                      </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <label class="leading-loose">Category</label>
+                    <select v-model="data.strCat" class="form-select px-4 py-3 rounded-full">
+                      <option value="-1" selected="selected">--Select Category--</option>
+                      <option value="AGM/EGM">AGM/EGM</option>
+                      <option value="Board Meeting">Board Meeting</option>
+                      <option value="Company Update">Company Update</option>
+                      <option value="Corp. Action">Corp. Action</option>
+                      <option value="Insider Trading / SAST">Insider Trading / SAST</option>
+                      <option value="Result">Result</option><option value="New Listing">New Listing</option>
+                    </select>
+                  </div>
+              </div>
               </div>
               <div class="pt-4 flex items-center space-x-4">
                   <button class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none" @click="getData">Search</button>
               </div>
             </div>
           </div>
-          <div class="bg-gray-200 flex flex-col gap-4 items-center justify-center">
+          <div class="flex flex-col gap-4 items-center justify-center mt-4">
             <VueTailwindPagination v-if="total > 50"
               :current="data.pageno"
               :total="total"
               :per-page="50"
               @page-changed="onPageClick($event)"
             />
-            <div v-for="d in announcements" :key="d.NEWSID" class="rounded-sm w-1/2 grid grid-cols-12 bg-white shadow p-3 gap-2 items-center hover:shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-105 transform" href="#">
+            <div v-for="d in announcements" :key="d.NEWSID" class="rounded-sm w-9/12 grid grid-cols-12 bg-white shadow p-3 gap-2 items-center hover:shadow-lg transition delay-150 duration-300 ease-in-out hover:scale-105 transform" href="#">
               <div class="col-span-12 md:col-span-1">
                 <a :href="'https://www.bseindia.com/xml-data/corpfiling/AttachLive/'+d.ATTACHMENTNAME" target="_blank">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 bi bi-file-pdf" fill="currentColor" viewBox="0 0 16 16">
