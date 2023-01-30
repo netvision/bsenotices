@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@ocrv/vue-tailwind-pagination": "^0.0.4",
-    "axios": "^0.26.1",
+    "axios": "^1.2.6",
     "moment": "^2.29.1",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
